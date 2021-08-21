@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import name.neuhalfen.cmssignaturevalidation.databinding.FragmentSecondBinding;
 
+import java.util.List;
+
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
@@ -39,7 +41,10 @@ public class SecondFragment extends Fragment {
         binding.buttonDoValidation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               log("I clicked you");
+                final List<String> tests = new CMSValidationTest().runTests();
+                for (String t : tests) {
+                    log(t + "\n--------\n\n");
+                }
             }
         });
     }
