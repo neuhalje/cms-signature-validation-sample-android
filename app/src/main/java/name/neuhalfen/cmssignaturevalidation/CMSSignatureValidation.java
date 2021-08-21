@@ -2,10 +2,14 @@ package name.neuhalfen.cmssignaturevalidation;
 
 
 
+import org.bouncycastle.cms.*;
+import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
+
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 import java.util.Collection;
 
+import static org.bouncycastle.jce.provider.BouncyCastleProvider.PROVIDER_NAME;
 
 
 public final class CMSSignatureValidation {
@@ -26,7 +30,7 @@ public final class CMSSignatureValidation {
 
     private boolean validateSignature(X509Certificate signerCert, byte[] data, byte[] signatureBytes) {
         boolean verified = false;
-        /*
+
         try {
             SignerInformationVerifier verifier = new JcaSimpleSignerInfoVerifierBuilder().setProvider(PROVIDER_NAME).build(signerCert);
 
@@ -41,8 +45,6 @@ public final class CMSSignatureValidation {
             e.printStackTrace();
             return false;
         }
-*/
-        return false;
     }
 
 }
