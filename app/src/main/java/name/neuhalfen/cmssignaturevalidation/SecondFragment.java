@@ -35,6 +35,17 @@ public class SecondFragment extends Fragment {
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
+
+        binding.buttonDoValidation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               log("I clicked you");
+            }
+        });
+    }
+
+    private void log(String message){
+        binding.textviewSecond.setText(binding.textviewSecond.getText() + "\n"  + message);
     }
 
     @Override
